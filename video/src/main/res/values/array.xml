@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="VideoFileType">
+        <item>.mp4</item>
+        <item>.asf</item>
+        <item>.3gp</item>
+        <item>.divx</item>
+        <item>.rmvb</item>
+        <item>.avi</item>
+        <item>.flv</item>
+        <item>.mkv</item>
+        <item>.mpeg</item>
+        <item>.mpe</item>
+        <item>.mpg</item>
+        <item>.rm</item>
+        <item>.vob</item>
+        <item>.wmv</item>
+        <item>.f4v</item>
+        <item>.m4v</item>
+        <item>.3gpp</item>
+        <item>.3g2</item>
+        <item>.webm</item>
+    </array>
+</resources>

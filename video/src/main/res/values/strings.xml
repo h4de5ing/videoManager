@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">视频</string>
+    <string name="details_ms" msgid="940634969189855292">"%1$02d:%2$02d"</string>
+    <string name="details_hms" msgid="3215779248094151255">"%1$d:%2$02d:%3$02d"</string>
+    <string name="share" msgid="3619042788254195341">"分享"</string>
+    <string name="empty_album_video" msgid="4542880442593595494">"没有可用的视频。"</string>
+    <string name="delete" msgid="2839695998251824487">"删除"</string>
+    <string name="operate_delete_file_ask">确认删除文件%1$s吗？</string>
+    <string name="common_text_ok">确定</string>
+    <string name="common_text_cancel">取消</string>
+    <string name="details" msgid="8415120088556445230">"详细信息"</string>
+    <string name="title" msgid="7622928349908052569">"标题"</string>
+    <string name="time" msgid="1367953006052876956">"时间"</string>
+    <string name="duration" msgid="8160058911218541616">"时长"</string>
+    <string name="file_size" msgid="8486169301588318915">"文件大小"</string>
+    <string name="path" msgid="4725740395885105824">"路径"</string>
+    <string name="formatdate">yyyy年MM月dd日EE HH:mm:ss</string>
+
+</resources>

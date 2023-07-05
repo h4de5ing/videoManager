@@ -25,22 +25,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private List<Video> mDataS;
+    private final List<Video> videoList = new ArrayList<>();
     private VideoAdapter mVideoAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        mDataS = new ArrayList<>();
         ListView mListView = findViewById(R.id.list);
-        mVideoAdapter = new VideoAdapter(this, mDataS);
+        mVideoAdapter = new VideoAdapter(this, videoList);
         mListView.setAdapter(mVideoAdapter);
         mListView.setOnItemClickListener((adapterView, view, position, id) -> {
             try {
                 System.out.println("点击了:" + id);
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setDataAndType(mDataS.get(position).uri, "video/*");
+                intent.setDataAndType(videoList.get(position).uri, "video/*");
                 startActivity(intent);
             } catch (Exception e) {
                 Toast.makeText(getApplicationContext(), "打开失败", Toast.LENGTH_SHORT).show();
@@ -85,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                         String duration = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.DURATION));
                         String videoSize = Formatter.formatFileSize(MainActivity.this, aLong);
                         String videoDuration = TimeUtils.formatDuration(MainActivity.this, Integer.parseInt(duration) / 1000);
-                        mDataS.add(new Video(uri, display_name, videoDuration, videoSize, createBigBitmap));
+                        videoList.add(new Video(uri, display_name, videoDuration, videoSize, createBigBitmap));
                         System.out.println("文件：" + display_name);
                     }
                 }

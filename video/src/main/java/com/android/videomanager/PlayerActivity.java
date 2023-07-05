@@ -10,10 +10,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.MediaItem;
 import com.google.android.exoplayer2.SimpleExoPlayer;
-import com.google.android.exoplayer2.ui.PlayerView;
+import com.google.android.exoplayer2.ui.StyledPlayerView;
 
 public class PlayerActivity extends AppCompatActivity {
-    private PlayerView playerView;
+    private StyledPlayerView playerView;
     private ExoPlayer player;
 
     @Override

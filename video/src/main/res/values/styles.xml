@@ -17,4 +17,8 @@
         <item name="android:background">#b659d5</item>
         <item name="android:backgroundStacked">@null</item>
     </style>
+
+    <style name="PlayerTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@android:color/black</item>
+    </style>
 </resources>

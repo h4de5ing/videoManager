@@ -18,12 +18,14 @@ android {
 
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.exoplayer:exoplayer:2.18.7'
+//    implementation 'com.google.android.exoplayer:exoplayer:2.18.7'
+
     implementation 'com.google.android.exoplayer:exoplayer-core:2.18.7'
-    implementation 'com.google.android.exoplayer:exoplayer-dash:2.18.7'
     implementation 'com.google.android.exoplayer:exoplayer-ui:2.18.7'
-    implementation 'com.google.android.exoplayer:exoplayer-hls:2.18.7'
-    implementation 'com.google.android.exoplayer:exoplayer-rtsp:2.18.7'
-    implementation 'com.google.android.exoplayer:exoplayer-smoothstreaming:2.18.7'
-    implementation 'com.google.android.exoplayer:exoplayer-transformer:2.18.7'
+
+//    implementation 'com.google.android.exoplayer:exoplayer-dash:2.18.7'
+//    implementation 'com.google.android.exoplayer:exoplayer-hls:2.18.7'
+//    implementation 'com.google.android.exoplayer:exoplayer-rtsp:2.18.7'
+//    implementation 'com.google.android.exoplayer:exoplayer-smoothstreaming:2.18.7'
+//    implementation 'com.google.android.exoplayer:exoplayer-transformer:2.18.7'
 }

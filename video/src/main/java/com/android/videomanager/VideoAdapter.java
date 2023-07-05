@@ -7,14 +7,13 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Gh0st on 2016/4/21 021.
  */
 public class VideoAdapter extends BaseAdapter {
-    List<VideoBean> mList = new ArrayList<VideoBean>();
+    List<VideoBean> mList;
     Context mContext;
 
     public VideoAdapter(Context context, List<VideoBean> list) {
@@ -43,14 +42,13 @@ public class VideoAdapter extends BaseAdapter {
         if (convertView == null) {
             holder = new ViewHolder();
             convertView = View.inflate(mContext, R.layout.list_item, null);
-            holder.icon = (ImageView) convertView.findViewById(R.id.iv_icon);
-            holder.name = (TextView) convertView.findViewById(R.id.tv_name);
-            holder.size = (TextView) convertView.findViewById(R.id.tv_size);
-            holder.length = (TextView) convertView.findViewById(R.id.tv_length);
+            holder.icon = convertView.findViewById(R.id.iv_icon);
+            holder.name = convertView.findViewById(R.id.tv_name);
+            holder.size = convertView.findViewById(R.id.tv_size);
+            holder.length = convertView.findViewById(R.id.tv_length);
             convertView.setTag(holder);
-        } else {
-            holder = (ViewHolder) convertView.getTag();
-        }
+        } else holder = (ViewHolder) convertView.getTag();
+
         VideoBean bean = mList.get(position);
         holder.icon.setImageBitmap(bean.videosmallthumbnail);
         holder.name.setText(bean.videoName);

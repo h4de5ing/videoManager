@@ -1,25 +1,21 @@
 apply plugin: 'com.android.application'
 android {
-    compileSdkVersion 23
-    buildToolsVersion "24.0.0 rc2"
-
+    compileSdkVersion 34
+    namespace 'com.android.videomanager'
     defaultConfig {
-        applicationId "com.code19.file"
+        applicationId "com.android.videomanager"
         minSdkVersion 15
-        targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        targetSdkVersion 34
+        versionCode 200
+        versionName "2.0.0"
     }
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.2.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
 }

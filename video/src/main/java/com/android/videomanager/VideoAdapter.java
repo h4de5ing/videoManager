@@ -13,10 +13,10 @@ import java.util.List;
  * Created by Gh0st on 2016/4/21 021.
  */
 public class VideoAdapter extends BaseAdapter {
-    List<VideoBean> mList;
-    Context mContext;
+    private List<Video> mList;
+    private Context mContext;
 
-    public VideoAdapter(Context context, List<VideoBean> list) {
+    public VideoAdapter(Context context, List<Video> list) {
         mContext = context;
         mList = list;
     }
@@ -49,11 +49,11 @@ public class VideoAdapter extends BaseAdapter {
             convertView.setTag(holder);
         } else holder = (ViewHolder) convertView.getTag();
 
-        VideoBean bean = mList.get(position);
-        holder.icon.setImageBitmap(bean.videosmallthumbnail);
+        Video bean = mList.get(position);
+        holder.icon.setImageBitmap(bean.videoThumbnail);
         holder.name.setText(bean.videoName);
-        holder.size.setText(bean.videoSize);
-        holder.length.setText(bean.videoLength);
+        holder.size.setText(bean.size);
+        holder.length.setText(bean.duration);
         return convertView;
     }
 

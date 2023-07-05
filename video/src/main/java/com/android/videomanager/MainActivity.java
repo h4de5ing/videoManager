@@ -3,7 +3,6 @@ package com.android.videomanager;
 import android.app.AlertDialog;
 import android.app.LoaderManager;
 import android.content.CursorLoader;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
@@ -32,7 +31,6 @@ import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String TAG = "MainActivity";
     boolean mListMode = true;
     List<VideoBean> mDatas;
     private ListView mListView;
@@ -46,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        mDatas = new ArrayList<VideoBean>();
+        mDatas = new ArrayList<>();
         DATE_FORMAT_DATE = new SimpleDateFormat(getResources().getString(R.string.formatdate));
         initData();
         mListView = (ListView) findViewById(R.id.list);
@@ -110,13 +108,9 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             if (mDialog.isShowing()) mDialog.dismiss();
             int id = v.getId();
-            if (id == R.id.share) {
-                shareVideo(mDatas.get(mPosition).videopath);
-            } else if (id == R.id.delete) {
-                deleteVideo(mDatas.get(mPosition).videopath, mPosition);
-            } else if (id == R.id.info) {
-                showVideoInfo(mPosition);
-            }
+            if (id == R.id.share) shareVideo(mDatas.get(mPosition).videopath);
+            else if (id == R.id.delete) deleteVideo(mDatas.get(mPosition).videopath, mPosition);
+            else if (id == R.id.info) showVideoInfo(mPosition);
         }
     }
 
@@ -134,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        //getLoaderManager().initLoader(1000, null, mVideoLoader);
+//        getLoaderManager().initLoader(1000, null, mVideoLoader);
         mDatas.clear();
         getLoaderManager().restartLoader(0, null, mVideoLoader);
     }
@@ -181,12 +175,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void deleteVideo(final String filepath, final int position) {
-        new AlertDialog.Builder(MainActivity.this).setTitle(getString(R.string.delete)).setMessage(getString(R.string.operate_delete_file_ask, mDatas.get(position).videoName)).setNegativeButton(getString(R.string.common_text_ok), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                delete(filepath, position);
-            }
-        }).setPositiveButton(getString(R.string.common_text_cancel), null).show();
+        new AlertDialog.Builder(MainActivity.this)
+                .setTitle(getString(R.string.delete))
+                .setMessage(getString(R.string.operate_delete_file_ask, mDatas.get(position).videoName))
+                .setNegativeButton(getString(R.string.common_text_ok), (dialog, which) -> delete(filepath, position)).setPositiveButton(getString(R.string.common_text_cancel), null).show();
     }
 
     private void showVideoInfo(int position) {
@@ -201,7 +193,12 @@ public class MainActivity extends AppCompatActivity {
         tv_length.setText(getString(R.string.duration) + " : " + mDatas.get(position).videoLength);
         tv_size.setText(getString(R.string.file_size) + " : " + mDatas.get(position).videoSize);
         tv_path.setText(getString(R.string.path) + " : " + mDatas.get(position).videopath);
-        new AlertDialog.Builder(MainActivity.this).setTitle(getString(R.string.details)).setView(vi).setPositiveButton(getString(R.string.common_text_ok), null).create().show();
+        new AlertDialog.Builder(MainActivity.this)
+                .setTitle(getString(R.string.details))
+                .setView(vi)
+                .setPositiveButton(getString(R.string.common_text_ok), null)
+                .create()
+                .show();
     }
 
     private void delete(String absoluteFilepath, int position) {

@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical"
-              android:paddingLeft="5dp">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="5dp">
 
     <ImageView
         android:id="@+id/mode_iv_icon"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,20 +25,20 @@
                 android:id="@+id/mode_tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="VID_29012111111_00000.3gp"/>
+                android:text="VID_29012111111_00000.3gp" />
 
             <TextView
                 android:id="@+id/mode_tv_size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
-                android:text="333MGB"/>
+                android:text="333MGB" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/mode_tv_length"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="08:00"/>
+            android:text="08:00" />
     </LinearLayout>
 </LinearLayout>

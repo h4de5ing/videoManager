@@ -1,4 +1,4 @@
-package com.code19.video;
+package com.android.videomanager;
 
 import android.app.AlertDialog;
 import android.app.LoaderManager;
@@ -13,7 +13,6 @@ import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.v7.app.AppCompatActivity;
 import android.text.format.Formatter;
 import android.view.Gravity;
 import android.view.Menu;
@@ -24,6 +23,8 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -107,19 +108,14 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
-            if (mDialog.isShowing()) {
-                mDialog.dismiss();
-            }
-            switch (v.getId()) {
-                case R.id.share:
-                    shareVideo(mDatas.get(mPosition).videopath);
-                    break;
-                case R.id.delete:
-                    deleteVideo(mDatas.get(mPosition).videopath, mPosition);
-                    break;
-                case R.id.info:
-                    showVideoInfo(mPosition);
-                    break;
+            if (mDialog.isShowing()) mDialog.dismiss();
+            int id = v.getId();
+            if (id == R.id.share) {
+                shareVideo(mDatas.get(mPosition).videopath);
+            } else if (id == R.id.delete) {
+                deleteVideo(mDatas.get(mPosition).videopath, mPosition);
+            } else if (id == R.id.info) {
+                showVideoInfo(mPosition);
             }
         }
     }
@@ -185,17 +181,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void deleteVideo(final String filepath, final int position) {
-        new AlertDialog.Builder(MainActivity.this)
-                .setTitle(getString(R.string.delete))
-                .setMessage(getString(R.string.operate_delete_file_ask, mDatas.get(position).videoName))
-                .setNegativeButton(getString(R.string.common_text_ok), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        delete(filepath, position);
-                    }
-                })
-                .setPositiveButton(getString(R.string.common_text_cancel), null)
-                .show();
+        new AlertDialog.Builder(MainActivity.this).setTitle(getString(R.string.delete)).setMessage(getString(R.string.operate_delete_file_ask, mDatas.get(position).videoName)).setNegativeButton(getString(R.string.common_text_ok), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                delete(filepath, position);
+            }
+        }).setPositiveButton(getString(R.string.common_text_cancel), null).show();
     }
 
     private void showVideoInfo(int position) {
@@ -210,12 +201,7 @@ public class MainActivity extends AppCompatActivity {
         tv_length.setText(getString(R.string.duration) + " : " + mDatas.get(position).videoLength);
         tv_size.setText(getString(R.string.file_size) + " : " + mDatas.get(position).videoSize);
         tv_path.setText(getString(R.string.path) + " : " + mDatas.get(position).videopath);
-        new AlertDialog.Builder(MainActivity.this)
-                .setTitle(getString(R.string.details))
-                .setView(vi)
-                .setPositiveButton(getString(R.string.common_text_ok), null)
-                .create()
-                .show();
+        new AlertDialog.Builder(MainActivity.this).setTitle(getString(R.string.details)).setView(vi).setPositiveButton(getString(R.string.common_text_ok), null).create().show();
     }
 
     private void delete(String absoluteFilepath, int position) {

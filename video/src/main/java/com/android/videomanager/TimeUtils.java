@@ -1,4 +1,4 @@
-package com.code19.video;
+package com.android.videomanager;
 
 import android.content.Context;
 
